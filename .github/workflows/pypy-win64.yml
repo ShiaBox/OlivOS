@@ -10,15 +10,14 @@ jobs:
       - name: Pypy Prepare
         run: |
           md cache
+          md pypy
           curl -L https://downloads.python.org/pypy/pypy3.8-v7.3.9-win64.zip -o ./cache/pypy.zip
-          Expand-Archive ./cache/pypy.zip ./pypy
+          Expand-Archive ./cache/pypy.zip ./cache/pypy
+          copy ./cache/pypy3.8-v7.3.9-win64/* ./pypy/
           curl -L https://download.lfd.uci.edu/pythonlibs/archived/Pillow-9.1.1-pp38-pypy38_pp73-win_amd64.whl -o ./cache/Pillow.whl
           curl -L https://download.lfd.uci.edu/pythonlibs/archived/lxml-4.9.0-pp38-pypy38_pp73-win_amd64.whl -o ./cache/lxml.whl
       - name: Pypy install
         run: |
-          cd pypy
-          dir
-          cd ..
           ./pypy/pypy.exe -m ensurepip
           ./pypy/pypy.exe -m pip install pyinstaller==3.5
           ./pypy/pypy.exe -m pip install flask
