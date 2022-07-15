@@ -10,7 +10,4 @@ jobs:
       - name: Download Pypy
         run: |
           curl -L https://downloads.python.org/pypy/pypy3.8-v7.3.9-win64.zip -o ./pypy.zip
-      - name: action-zip
-        uses: montudor/action-zip@v1.0.0
-        with:
-          args: unzip -qq pypy.zip -d pypy
+          Expand-Archive ./pypy.zip ./pypy
