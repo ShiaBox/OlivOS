@@ -38,7 +38,8 @@ jobs:
           md release/OlivOS
           move ./pypy/ ./release/OlivOS
           move ./OlivOS/ ./release/OlivOS
-          move ./script/pypystart_publish.bat ./release/OlivOS/start.bat
+          move ./script/pypystart_publish.bat ./release/OlivOS/OlivOS.bat
+          move ./main.py ./release/OlivOS/main.py
       - name: Packing OlivOS-Win-Pypy
         uses: actions/upload-artifact@v2
         with:
