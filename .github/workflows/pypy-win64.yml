@@ -1,0 +1,8 @@
+name: CI-Packing-win32
+on:
+  push:
+    branches: [ main, pypyDev ]
+jobs:
+  build:
+    runs-on: windows-2019
+    steps:
