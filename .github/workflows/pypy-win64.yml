@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Pypy Prepare
         run: |
-          md resource
+          md cache
           curl -L https://downloads.python.org/pypy/pypy3.8-v7.3.9-win64.zip -o ./cache/pypy.zip
           Expand-Archive ./cache/pypy.zip ./pypy
           curl -L https://download.lfd.uci.edu/pythonlibs/archived/Pillow-9.1.1-pp38-pypy38_pp73-win_amd64.whl -o ./cache/Pillow.whl
