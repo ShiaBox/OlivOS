@@ -1,4 +1,4 @@
-name: CI-Packing-win32
+name: CI-Packing-Pypy-win32
 on:
   push:
     branches: [ main, pypyDev ]
