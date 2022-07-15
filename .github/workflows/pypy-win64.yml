@@ -7,8 +7,26 @@ jobs:
     runs-on: windows-2019
     steps:
       - uses: actions/checkout@v2
-      - name: Download Pypy
+      - name: Pypy Prepare
         run: |
-          curl -L https://downloads.python.org/pypy/pypy3.8-v7.3.9-win64.zip -o ./pypy.zip
-          Expand-Archive ./pypy.zip ./pypy
-          dir
+          mkdir resource
+          curl -L https://downloads.python.org/pypy/pypy3.8-v7.3.9-win64.zip -o ./cache/pypy.zip
+          Expand-Archive ./cache/pypy.zip ./pypy
+          curl -L https://download.lfd.uci.edu/pythonlibs/archived/Pillow-9.1.1-pp38-pypy38_pp73-win_amd64.whl -o ./cache/Pillow.whl
+          curl -L https://download.lfd.uci.edu/pythonlibs/archived/lxml-4.9.0-pp38-pypy38_pp73-win_amd64.whl -o ./cache/lxml.whl
+      - name: Pypy install
+        run: |
+          .\pypy\pypy.exe -m ensurepip
+          .\pypy\pypy.exe -m pip install pyinstaller==3.5
+          .\pypy\pypy.exe -m pip install flask
+          .\pypy\pypy.exe -m pip install gevent
+          .\pypy\pypy.exe -m pip install psutil
+          .\pypy\pypy.exe -m pip install requests==2.23.0
+          .\pypy\pypy.exe -m pip install pybase64
+          .\pypy\pypy.exe -m pip install websockets
+          .\pypy\pypy.exe -m pip install websocket-client
+          .\pypy\pypy.exe -m pip install .\cache\Pillow.whl
+          .\pypy\pypy.exe -m pip install .\cache\lxml.whl
+          .\pypy\pypy.exe -m pip install rsa
+          .\pypy\pypy.exe -m pip install requests_toolbelt
+          .\pypy\pypy.exe -m pip install pystray
