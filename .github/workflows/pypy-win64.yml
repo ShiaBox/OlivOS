@@ -10,7 +10,6 @@ jobs:
       - name: Pypy Prepare
         run: |
           md cache
-          md pypy
           curl -L https://downloads.python.org/pypy/pypy3.8-v7.3.9-win64.zip -o ./cache/pypy.zip
           Expand-Archive ./cache/pypy.zip ./cache/pypy
           move ./cache/pypy/pypy3.8-v7.3.9-win64/ ./
