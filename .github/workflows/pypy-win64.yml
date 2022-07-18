@@ -1,4 +1,4 @@
-name: CI-Packing-Pypy-win32
+name: CI-Packing-Pypy-win64
 on:
   push:
     branches: [ main, pypyDev ]
@@ -28,8 +28,8 @@ jobs:
           ./pypy/pypy.exe -m pip install websockets
           ./pypy/pypy.exe -m pip install websocket-client
           ./pypy/pypy.exe -m pip install .\cache\Pillow-9.1.1-pp38-pypy38_pp73-win_amd64.whl
-          #./pypy/pypy.exe -m pip install .\cache\lxml-4.9.0-pp38-pypy38_pp73-win_amd64.whl
-          ./pypy/pypy.exe -m pip install -e git+https://github.com/lunzhiPenxil/lxml#egg=lxml-cffi
+          ./pypy/pypy.exe -m pip install .\cache\lxml-4.9.0-pp38-pypy38_pp73-win_amd64.whl
+          #./pypy/pypy.exe -m pip install -e git+https://github.com/lunzhiPenxil/lxml#egg=lxml-cffi
           ./pypy/pypy.exe -m pip install rsa
           ./pypy/pypy.exe -m pip install requests_toolbelt
           ./pypy/pypy.exe -m pip install pystray
