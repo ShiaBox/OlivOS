@@ -28,7 +28,8 @@ jobs:
           ./pypy/pypy.exe -m pip install websockets
           ./pypy/pypy.exe -m pip install websocket-client
           ./pypy/pypy.exe -m pip install .\cache\Pillow.whl
-          ./pypy/pypy.exe -m pip install .\cache\lxml.whl
+          #./pypy/pypy.exe -m pip install .\cache\lxml.whl
+          ./pypy/pypy.exe -m pip install -e git+https://github.com/lunzhiPenxil/lxml
           ./pypy/pypy.exe -m pip install rsa
           ./pypy/pypy.exe -m pip install requests_toolbelt
           ./pypy/pypy.exe -m pip install pystray
