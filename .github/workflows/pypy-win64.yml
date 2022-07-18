@@ -14,8 +14,8 @@ jobs:
           Expand-Archive ./cache/pypy.zip ./cache/pypy
           move ./cache/pypy/pypy3.8-v7.3.9-win64/ ./
           ren ./pypy3.8-v7.3.9-win64 ./pypy
-          curl -L https://download.lfd.uci.edu/pythonlibs/archived/Pillow-9.1.1-pp38-pypy38_pp73-win_amd64.whl -o ./cache/Pillow.whl
-          curl -L https://download.lfd.uci.edu/pythonlibs/archived/lxml-4.9.0-pp38-pypy38_pp73-win_amd64.whl -o ./cache/lxml.whl
+          curl -L https://download.lfd.uci.edu/pythonlibs/archived/Pillow-9.1.1-pp38-pypy38_pp73-win_amd64.whl -o ./cache/Pillow-9.1.1-pp38-pypy38_pp73-win_amd64.whl
+          curl -L https://download.lfd.uci.edu/pythonlibs/archived/lxml-4.9.0-pp38-pypy38_pp73-win_amd64.whl -o ./cache/lxml-4.9.0-pp38-pypy38_pp73-win_amd64.whl
       - name: Pypy Install
         run: |
           ./pypy/pypy.exe -m ensurepip
@@ -27,8 +27,8 @@ jobs:
           ./pypy/pypy.exe -m pip install pybase64
           ./pypy/pypy.exe -m pip install websockets
           ./pypy/pypy.exe -m pip install websocket-client
-          ./pypy/pypy.exe -m pip install .\cache\Pillow.whl
-          #./pypy/pypy.exe -m pip install .\cache\lxml.whl
+          ./pypy/pypy.exe -m pip install .\cache\Pillow-9.1.1-pp38-pypy38_pp73-win_amd64.whl
+          #./pypy/pypy.exe -m pip install .\cache\lxml.whl#egg=lxml-cffi
           ./pypy/pypy.exe -m pip install -e git+https://github.com/lunzhiPenxil/lxml
           ./pypy/pypy.exe -m pip install rsa
           ./pypy/pypy.exe -m pip install requests_toolbelt
