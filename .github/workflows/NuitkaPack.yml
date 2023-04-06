@@ -17,16 +17,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install -r ./requirements_win.txt
+        python -m pip install nuitka
     - name: Run packing
       run: |
         cp ./OlivOS/hook.py ./OlivOS/hook_bak.py
         cp ./OlivOS/hook_pack.py ./OlivOS/hook.py
-    - name: Packing OlivOS-Win
-    # You may pin to the exact commit or the version.
-    # uses: JustUndertaker/Nuitka-Action@8819a38343397ff46d960ab9cb40f488d886c2fa
-      uses: JustUndertaker/Nuitka-Action@v1.0
-      with:
-        script-name: ./mian.py
+        nuitka --mingw64 --standalone --show-progress --show-memory --enable-plugin=pyqt5 --follow-import-to=need --output-dir=out main.py
     - name: Packing
       uses: actions/upload-artifact@v3
       with:
